@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap');
 
+* { 
+  font-family: 'Noto Sans TC', sans-serif;
+}
 /* This usually goes in the global but let's keep it here
    for the sake of this tutorial */
    body {
@@ -51,3 +55,4 @@
     height: 4rem;
   }
 }
+
