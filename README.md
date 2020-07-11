@@ -29,4 +29,5 @@ Future considerations:
 - Backend with a database that'll store restaurant location to reduce API Calls
 - More interaction (ie more restaurant data, etc.) although Mapbox/Web GL makes React component rendering difficult
 - Usage of established React Mapbox GL Libraries
+- Development vs Production variable flow
 
