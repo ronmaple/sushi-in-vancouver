@@ -3,8 +3,6 @@
 * { 
   font-family: 'Noto Sans TC', sans-serif;
 }
-/* This usually goes in the global but let's keep it here
-   for the sake of this tutorial */
    body {
     width: 100vw;
     height: 100vh;
@@ -13,7 +11,7 @@
     overflow: hidden;
   }
 
-/*  Make our map take the full viewport - 100% */
+  /* full viewport for map */
 #root,
 .App,
 .mapBox {
@@ -21,9 +19,7 @@
   height: 100%;
 }
 
-/* Tooltip code */
 .mapboxgl-popup {
-  font-family: "Baloo Thambi 2", cursive;
   font-size: 10px;
   padding: 0;
   margin: 0;
@@ -56,8 +52,17 @@
 }
 
 .mapboxgl-user-location-accuracy-circle {
-  // width: 300px !important;
-  // height: 300px !important;
   height: 10%;
   width: 10%;
+}
+
+// mapbox geolocate button is hardcoded, 
+// and for some reason not (easily) accessible by DOM. 
+// Make content changes via css:
+#root > div > div > div > div.mapboxgl-control-container > div.mapboxgl-ctrl-top-right > div > button {
+  height: 2.5em;
+  width: 7em;
+}
+#root > div > div > div > div.mapboxgl-control-container > div.mapboxgl-ctrl-top-right > div > button:after {
+  content: "↗ Near me!";
 }

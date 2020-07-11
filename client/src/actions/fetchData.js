@@ -1,19 +1,23 @@
 import axios from 'axios'
+import { VANCOUVER_LAT, VANCOUVER_LONG, DEFAULT_ESTABLISHMENT } from '../constants';
 
-export default async function fetchData() {
+export default async function fetchData(latitude, longitude, establishment) {
+
+    const lat = latitude || VANCOUVER_LAT;
+    const long = longitude || VANCOUVER_LONG;
+    const establishmentType = establishment || DEFAULT_ESTABLISHMENT; // for future update where food type is dynamic
+
+    const URL = process.env.REACT_APP_API_BASE + `&lat=${lat}&lon=${long}&radius=1000&establishment_type=${establishmentType}&sort=real_distance`;
+
     const data = await axios
-        .get(process.env.REACT_APP_ZOMATO_API_URL, {
+        .get(URL, {
             headers: {
                 'user-key': process.env.REACT_APP_ZOMATO_API_KEY
             }
         })
-        .then(res => {
+        .then(({ data: { restaurants } }) => {
 
-            console.log('res.data', res.data)
-
-            const { restaurants } = res.data;
-
-            const restaurantData = restaurants.map(({
+            return restaurants.map(({
                 restaurant: {
                     thumb,
                     user_rating: {
@@ -40,9 +44,7 @@ export default async function fetchData() {
                         thumbnail: thumb,
                     }
                 }))
-            console.log('restaurantData', restaurantData);
 
-            return restaurantData;
         })
         .catch(err => console.error(err))
 

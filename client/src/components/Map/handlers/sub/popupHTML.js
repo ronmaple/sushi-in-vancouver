@@ -1,9 +1,8 @@
 
 export default function popUpHTML({ name, address, rating, thumbnail }) {
 
-    // to do: compartmentalize this in a scss file
     const thumbnailDiv = `
-        <div style='
+        <div id='popupThumbnail' style='
             width: 100%; 
             height: 100px;
             max-width: 200px;
@@ -11,8 +10,8 @@ export default function popUpHTML({ name, address, rating, thumbnail }) {
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            overflow: hidden;'
-        >
+            overflow: hidden;
+        '>
         </div>
     `;
 
