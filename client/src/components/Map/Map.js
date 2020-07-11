@@ -51,7 +51,7 @@ export default function Map({ data }) {
             geolocate.on('geolocate', function (e) { handleGeolocationChange(map, geolocate, e) })
 
         })
-    }, [])
+    }, [data]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>
